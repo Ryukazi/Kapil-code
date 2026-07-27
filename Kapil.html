@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aceker — Web Designer & Developer</title>
+    <meta name="description"
+        content="Portfolio of Aceker — a web designer and developer crafting visually stunning, user-friendly websites.">
+    <meta name="theme-color" content="#0a0a14">
+
+    <!-- Google Fonts: Inter + JetBrains Mono for code aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- ========== PARTICLE CANVAS BACKGROUND ========== -->
+    <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+    <!-- ========== CUSTOM CURSOR ========== -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- ========== NAVBAR ========== -->
+    <header>
+        <nav class="navbar" id="navbar">
+            <div class="navdiv">
+                <div class="Logo">
+                    <a href="#">Kan<span>gxrelz</span></a>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#gallery">Arts</a></li>//not necessary 
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+        <div class="nav-overlay" id="navOverlay"></div>
+    </header>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+        <div class="hero-image reveal">
+            <div class="hero-image-wrapper">
+                <img src="123.jpeg" alt="Kangxrelz — Web Designer & Developer & part-time code thief">
+                <div class="hero-image-ring"></div>
+                <div class="hero-image-ring hero-image-ring--delayed"></div>
+            </div>
+        </div>
+        <div class="hero-content reveal">
+            <span class="hero-label">
+                <span class="terminal-prompt">&gt;_</span> Web Designer & Developer
+            </span>
+            <h1 class="hero-title" id="about">
+                Hi, I'm <span class="glitch-text" data-text="Aceker">Aceker</span>
+            </h1>
+            <p class="hero-description">
+                <em>Gamer</em> with a passion for coding and creating <em>quality websites</em>.
+                I turn caffeine into clean code, and blank canvases into digital experiences
+                that actually hit different. No cap.
+            </p>
+            <div class="hero-about-tags">
+                <span class="about-tag"><span class="tag-symbol">#</span>gamer</span>
+                <span class="about-tag"><span class="tag-symbol">#</span>web-dev</span>
+                <span class="about-tag"><span class="tag-symbol">#</span>ui-ux</span>
+                <span class="about-tag"><span class="tag-symbol">#</span>otaku</span>
+                <span class="about-tag"><span class="tag-symbol">#</span>night-owl</span>
+            </div>
+            <div class="hero-typing" id="heroTyping" aria-label="Typing animation">
+                <span class="typing-prefix">const passion =</span>
+                <span class="typing-text" id="typingText"></span>
+                <span class="typing-cursor">|</span>
+            </div>
+            <a href="#gallery" class="cta-button" id="ctaButton">
+                View My Work
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section class="section about-section" id="about">
+        <div class="section-header reveal">
+            <span class="section-label">Who Am I</span>
+            <h2 class="section-title">About Me</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="about-grid">
+            <!-- Terminal Card -->
+            <div class="about-terminal reveal">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
+                    </div>
+                    <span class="terminal-title">kangxrelz.config.js</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="t-keyword">const</span>
+                        <span class="t-var"> aceker</span>
+                        <span class="t-op"> = {</span>
+                    </div>
+                    <div class="terminal-line t-indent">
+                        <span class="t-key">name:</span>
+                        <span class="t-string"> "kangxrelz"</span><span class="t-op">,</span>
+                    </div>
+                    <div class="terminal-line t-indent">
+                        <span class="t-key">role:</span>
+                        <span class="t-string"> "Web Designer & Developer"</span><span class="t-op">,</span>
+                    </div>
+                    <div class="terminal-line t-indent">
+                        <span class="t-key">loves:</span>
+                        <span class="t-op"> [</span><span class="t-string">"gaming"</span><span class="t-op">,</span>
+                        <span class="t-string"> "coding"</span><span class="t-op">,</span>
+                        <span class="t-string"> "anime"</span><span class="t-op">],</span>
+                    </div>
+                    <div class="terminal-line t-indent">
+                        <span class="t-key">status:</span>
+                        <span class="t-string"> "open to work"</span><span class="t-op">,</span>
+                    </div>
+                    <div class="terminal-line t-indent">
+                        <span class="t-key">vibes:</span>
+                        <span class="t-string"> "immaculate"</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="t-op">};</span>
+                    </div>
+                    <div class="terminal-line terminal-cursor-line">
+                        <span class="t-comment">// always building something cool</span>
+                        <span class="terminal-blink">▌</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Content -->
+            <div class="about-content reveal">
+                <p class="about-bio">
+                    I live at the intersection of <span class="about-highlight">design and code</span> —
+                    where aesthetics meet functionality and every pixel has a reason to exist.
+                    Building things on the web isn't just a skill, it's how I <span
+                        class="about-highlight">think</span>.
+                </p>
+                <p class="about-bio">
+                    When I'm not deep in a codebase, you'll find me grinding ranked, sketching anime characters,
+                    or exploring the latest in <span class="about-highlight">web tech</span>. I don't just build
+                    websites —
+                    I craft experiences that people actually remember.
+                </p>
+
+                <!-- Stats -->
+                <div class="about-stats">
+                    <div class="about-stat">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Projects Shipped</span>
+                    </div>
+                    <div class="about-stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Skills Mastered</span>
+                    </div>
+                    <div class="about-stat">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Lines of Code</span>
+                    </div>
+                </div>
+
+                <!-- Trait pills -->
+                <div class="about-traits">
+                    <div class="about-trait">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                        Gamer Mindset
+                    </div>
+                    <div class="about-trait">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                        Clean Code
+                    </div>
+                    <div class="about-trait">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        Detail Obsessed
+                    </div>
+                    <div class="about-trait">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                        Quality First
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SKILLS ========== -->
+    <section class="section" id="skills">
+        <div class="section-header reveal">
+            <span class="section-label">Expertise</span>
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="skills-grid">
+            <!-- HTML -->
+            <div class="skill-card reveal" data-skill="html">
+                <div class="skill-icon">
+                    <svg viewBox="0 0 128 128" width="48" height="48">
+                        <path fill="#E44D26" d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z" />
+                        <path fill="#F16529" d="M64 116.8l36.378-10.086 8.559-95.878H64z" />
+                        <path fill="#EBEBEB"
+                            d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692 3.382 37.927H64zm0 35.743l-.061.017-15.327-4.14-.979-10.975H33.816l1.928 21.609 28.193 7.826.063-.017z" />
+                        <path fill="#fff"
+                            d="M63.952 52.455v13.763h16.947l-1.597 17.849-15.35 4.143v14.319l28.215-7.82.207-2.325 3.234-36.233.335-3.696h-3.708zm0-27.856v13.762h33.244l.276-3.092.628-6.978.329-3.692z" />
+                    </svg>
+                </div>
+                <h3 class="skill-name">HTML5</h3>
+                <p class="skill-desc">Semantic markup & accessibility</p>
+                <div class="skill-bar">
+                    <div class="skill-bar-fill" data-level="95"></div>
+                </div>
+                <span class="skill-percent">95%</span>
+            </div>
+
+            <!-- CSS -->
+            <div class="skill-card reveal" data-skill="css">
+                <div class="skill-icon">
+                    <svg viewBox="0 0 128 128" width="48" height="48">
+                        <path fill="#1572B6" d="M18.814 114.123L8.76 1.352h110.48l-10.064 112.754-45.243 12.543z" />
+                        <path fill="#33A9DC" d="M64.001 117.062l36.559-10.136 8.601-96.354h-45.16z" />
+                        <path fill="#fff"
+                            d="M64.001 51.429h18.302l1.264-14.163H64.001V24.208h34.682l-.332 3.711-3.4 38.114h-30.95z" />
+                        <path fill="#EBEBEB"
+                            d="M64.083 87.349l-.061.018-15.403-4.159-.985-11.031H33.752l1.937 21.717 28.331 7.863.063-.018z" />
+                        <path fill="#fff"
+                            d="M81.127 64.675l-1.666 18.522-15.426 4.164v14.39l28.354-7.858.208-2.337 2.406-26.881z" />
+                        <path fill="#EBEBEB"
+                            d="M64.048 24.208v13.058H30.64l-.277-3.108-.633-7.088-.332-2.862zm-.047 27.221v13.157H46.119l-.277-3.108-.634-7.088-.331-2.961z" />
+                    </svg>
+                </div>
+                <h3 class="skill-name">CSS3</h3>
+                <p class="skill-desc">Animations, Grid & Flexbox</p>
+                <div class="skill-bar">
+                    <div class="skill-bar-fill" data-level="90"></div>
+                </div>
+                <span class="skill-percent">90%</span>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="skill-card reveal" data-skill="js">
+                <div class="skill-icon">
+                    <svg viewBox="0 0 128 128" width="48" height="48">
+                        <path fill="#F0DB4F" d="M1.408 1.408h125.184v125.185H1.408z" />
+                        <path fill="#323330"
+                            d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981-3.832-1.761-8.104-3.022-9.377-5.926-.452-1.69-.512-2.642-.226-3.665.821-3.32 4.784-4.355 7.925-3.403 2.023.678 3.938 2.237 5.093 4.724 5.402-3.498 5.391-3.475 9.163-5.879-1.381-2.141-2.118-3.129-3.022-4.045-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235-5.926 6.724-4.236 18.492 2.975 23.335 7.104 5.332 17.54 6.545 18.873 11.531 1.297 6.104-4.486 8.08-10.234 7.378-4.236-.881-6.592-3.034-9.139-6.949-4.688 2.713-4.688 2.713-9.508 5.486 1.143 2.499 2.344 3.63 4.26 5.765 9.068 9.065 31.798 8.768 35.881-5.131.165-.478 1.261-3.666.18-8.581zM69.462 58.943H57.753l-.048 30.272c0 6.271.332 12.021-.71 13.799-1.632 3.63-5.926 3.166-7.854 2.451-1.965-1.072-2.951-2.571-4.131-4.712-.321-.56-.573-.964-.632-1.012l-9.58 5.879c1.607 3.391 3.96 6.332 7.069 8.222 4.594 2.773 10.756 3.683 17.228 2.165 4.236-1.239 7.854-3.688 9.796-7.544 2.725-5.355 2.166-11.904 2.131-19.225.059-10.251.012-20.518.012-30.812h.428z" />
+                    </svg>
+                </div>
+                <h3 class="skill-name">JavaScript</h3>
+                <p class="skill-desc">ES6+, DOM & async patterns</p>
+                <div class="skill-bar">
+                    <div class="skill-bar-fill" data-level="85"></div>
+                </div>
+                <span class="skill-percent">85%</span>
+            </div>
+
+            <!-- Firebase -->
+            <div class="skill-card reveal" data-skill="firebase">
+                <div class="skill-icon">
+                    <svg viewBox="0 0 128 128" width="48" height="48">
+                        <path fill="#FFA000" d="M27.35 80.52l7.68-75.44a1.56 1.56 0 0 1 2.91-.54l8.21 15.36z" />
+                        <path fill="#F57C00"
+                            d="M99.59 105.73L88.87 18.12a1.56 1.56 0 0 0-2.67-.86L27.35 80.52l30.97 17.1a4.68 4.68 0 0 0 4.56.11z" />
+                        <path fill="#FFCA28" d="M73.08 37.17L64.6 21.18a1.56 1.56 0 0 0-2.73 0L27.35 80.52z" />
+                        <path fill="#fff" opacity=".2"
+                            d="M99.59 105.73L88.87 18.12a1.56 1.56 0 0 0-2.67-.86l-13.12 13.5 8.21 6.41-8.21-6.41L27.35 80.52l30.97 17.1a4.68 4.68 0 0 0 4.56.11z" />
+                    </svg>
+                </div>
+                <h3 class="skill-name">Firebase</h3>
+                <p class="skill-desc">Auth, Firestore & Hosting</p>
+                <div class="skill-bar">
+                    <div class="skill-bar-fill" data-level="75"></div>
+                </div>
+                <span class="skill-percent">75%</span>
+            </div>
+
+            <!-- Python -->
+            <div class="skill-card reveal" data-skill="python">
+                <div class="skill-icon">
+                    <svg viewBox="0 0 128 128" width="48" height="48">
+                        <linearGradient id="pyGrad1" x1="12.959" x2="79.639" y1="12.039" y2="78.719"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#387EB8" />
+                            <stop offset="1" stop-color="#366994" />
+                        </linearGradient>
+                        <linearGradient id="pyGrad2" x1="19.128" x2="100.776" y1="47.525" y2="83.525"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#FFE052" />
+                            <stop offset="1" stop-color="#FFC331" />
+                        </linearGradient>
+                        <path fill="url(#pyGrad1)"
+                            d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.836-4.244-.706-8.645-1.027-12.866-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z" />
+                        <path fill="url(#pyGrad2)"
+                            d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM78.929 94.471c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z" />
+                    </svg>
+                </div>
+                <h3 class="skill-name">Python</h3>
+                <p class="skill-desc">Scripting, APIs & automation</p>
+                <div class="skill-bar">
+                    <div class="skill-bar-fill" data-level="80"></div>
+                </div>
+                <span class="skill-percent">80%</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PROJECTS ========== -->
+    <section class="section" id="projects">
+        <div class="section-header reveal">
+            <span class="section-label">My Work</span>
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="projects-grid">
+            <!-- Ryuzaki -->
+            <div class="project-card reveal">
+                <div class="project-content">
+                    <h3 class="project-title">Ryuzaki</h3>
+                    <p class="project-desc">A full-stack website made by Kangxrelz it's generates image threw your imagination.</p>
+                    <div class="project-links">
+                        <a href="https://magic-imagee.vercel.app/" target="_blank" class="project-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/Ryuzaki/..." target="_blank" class="project-link">
+                            <ion-icon name="logo-github"></ion-icon>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tic Tac Toe -->
+            <div class="project-card reveal">
+                <div class="project-content">
+                    <h3 class="project-title">Tic-Tac-Toe</h3>
+                    <p class="project-desc">A classical TikTok scraper it's search TikTok from tikwm and give videos currently the website isn't fully prepared but in future it gonna be good stay with me.</p>
+                    <div class="project-links">
+                        <a href="https://anime-edit.vercel.app/" target="_blank" class="project-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0  2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/Ryukazi/..." target="_blank" class="project-link">
+                            <ion-icon name="logo-github"></ion-icon>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Valentine's Day Question -->
+            <div class="project-card reveal">
+                <div class="project-content">
+                    <h3 class="project-title">An 3d heart</h3>
+                    <p class="project-desc">A 3d heart website by sparkles it's for fun.</p>
+                    <div class="project-links">
+                        <a href="https://heart-animation-theta.vercel.app/" target="_blank"
+                            class="project-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/Ryuzaki/..." target="_blank"
+                            class="project-link">
+                            <ion-icon name="logo-github"></ion-icon>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== GALLERY ========== -->
+    <section class="section" id="gallery">
+        <div class="section-header reveal">
+            <span class="section-label">Portfolio</span>
+            <h2 class="section-title">Arts & Illustrations</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="Kakashi.png" alt="Kakashi illustration" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="Killua.png" alt="Killua illustration" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="frieren.png" alt="Frieren illustration" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="luffy.png" alt="Luffy illustration" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="Makima.png" alt="Makima illustration" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="eye.png" alt="Eye illustration" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="Sukuna.png" alt="Sukuna illustration" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="sketch.jpg" alt="Sketch artwork" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="Giyu.png" alt="Giyu illustration" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">&times;</button>
+        <img src="" alt="Enlarged artwork">
+    </div>
+
+    <!-- ========== EDUCATION ========== -->
+    <section class="section" id="education">
+        <div class="section-header reveal">
+            <span class="section-label">Background</span>
+            <h2 class="section-title">Education</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <div class="timeline-item-header">
+                    <img src="ccs.jpg" alt="Crescent City School logo">
+                    <div class="timeline-item-info">
+                        <div class="school-name">Crescent City School</div>
+                        <div class="degree">SLC Examination</div>
+                    </div>
+                </div>
+                <div class="details">GPA: 4.00</div> // you can edit by yourself 
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-item-header">
+                    <img src="jebs.png" alt="Jyoti English Boarding School logo">
+                    <div class="timeline-item-info">
+                        <div class="school-name">Jyoti English Boarding School</div>
+                        <div class="degree">SEE Examination</div>
+                    </div>
+                </div>
+                <div class="details">GPA: 4.00</div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-item-header">
+                    <img src="jebs.png" alt="Jyoti English Boarding School logo">
+                    <div class="timeline-item-info">
+                        <div class="school-name">Jyoti English Boarding School</div>
+                        <div class="degree">BLE Examination</div>
+                    </div>
+                </div>
+                <div class="details">GPA: 4.00</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer id="contact">
+        <div class="footer-label">Get In Touch</div>
+        <h2 class="footer-title">Let's Work Together</h2>
+        <div class="social-links">
+            <a href="https://www.facebook.com/..." target="_blank" aria-label="Facebook">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+            <a href="https://www.facebook.com/..." target="_blank" aria-label="Instagram">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+            <a href="https://www.github.com/Ryukazi" target="_blank" aria-label="GitHub">
+                <ion-icon name="logo-github"></ion-icon>
+            </a>
+            <a href="https://www.twitch.com/..." target="_blank" aria-label="Twitch">
+                <ion-icon name="logo-twitch"></ion-icon>
+            </a>
+            <a href="https://www.youtube.com/Ryuz4ki" target="_blank" aria-label="YouTube">
+                <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+        </div>
+        <div class="copyright">&copy; 2026 Aceker. All Rights Reserved.</div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
