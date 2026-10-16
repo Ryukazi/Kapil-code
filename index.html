@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Denish — Web Designer & Developer</title>
+    <title>Denish Chaudhary — Lord Denish | Web Developer</title>
     <meta name="description"
-        content="Portfolio of Kangxrelz — a web designer and developer crafting visually stunning, user-friendly websites.">
+        content="Portfolio of Denish Chaudhary ( Denish) — a web designer and developer crafting visually stunning, user-friendly websites.">
     <meta name="theme-color" content="#0a0a14">
 
     <!-- Google Fonts: Inter + JetBrains Mono for code aesthetic -->
@@ -17,206 +17,103 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="extra.css">
 </head>
 
 <body>
-    <!-- ========== PARTICLE CANVAS BACKGROUND ========== -->
-    <canvas id="particleCanvas" aria-hidden="true"></canvas>
+    <!-- ENTER SCREEN: browsers block autoplay audio, so one tap starts the music -->
+    <div class="enter-screen" id="enterScreen">
+        <div class="enter-inner">
+            <div class="enter-glitch" data-text="DENISH">DENISH</div>
+            <p class="enter-sub">Welcome to my world</p>
+            <button class="enter-btn" id="enterBtn">Tap to Enter</button>
+        </div>
+    </div>
 
-    <!-- ========== CUSTOM CURSOR ========== -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <canvas id="particleCanvas" aria-hidden="true"></canvas>
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-ring" id="cursorRing"></div>
 
-    <!-- ========== NAVBAR ========== -->
+    <!-- MUSIC (put your file at assets/music.mp3) -->
+    <audio id="bgMusic" src="assets/music.mp3" loop preload="auto"></audio>
+    <button class="music-btn" id="musicBtn" aria-label="Toggle music"><ion-icon name="musical-notes"></ion-icon></button>
+
     <header>
         <nav class="navbar" id="navbar">
             <div class="navdiv">
-                <div class="Logo">
-                    <a href="#">Kan<span>gxrelz</span></a>
-                </div>
+                <div class="Logo"><a href="#hero">Lemon<span> Denish</span></a></div>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#hero" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="#gallery">Beloved</a></li>
-                    <li><a href="#education">Education</a></li>
+                    <li><a href="#github">GitHub</a></li>
+                    <li><a href="#journey">Journey</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
             </div>
         </nav>
         <div class="nav-overlay" id="navOverlay"></div>
     </header>
 
-    <!-- ========== HERO ========== -->
+    <!-- HERO -->
     <section class="hero" id="hero">
         <div class="hero-image reveal">
             <div class="hero-image-wrapper">
-                <img src="https://i.ibb.co/ymkRDQHj/Screenshot-20260307-165522-1.jpg" alt="Kangxrelz — Web Designer & Developer & part-time code thief">
+                <!-- Put your video at assets/profile.mp4 (photo link goes in config.js) -->
+                <video class="hero-video" id="heroVideo" src="assets/profile.mp4" autoplay muted loop playsinline></video>
                 <div class="hero-image-ring"></div>
                 <div class="hero-image-ring hero-image-ring--delayed"></div>
             </div>
         </div>
         <div class="hero-content reveal">
-            <span class="hero-label">
-                <span class="terminal-prompt">&gt;_</span> Web Designer & Developer
-            </span>
-            <h1 class="hero-title" id="about">
-                Hi, I'm <span class="glitch-text" data-text="Kangxrelz">Kangxrelz</span>
-            </h1>
+            <span class="hero-label"><span class="terminal-prompt">&gt;_</span> Web Developer · Creator</span>
+            <h1 class="hero-title">Hi, I'm <span class="glitch-text" data-text="Denish">Denish</span></h1>
+            <p class="hero-name-line">aka <strong>Lemon Denish</strong> · @Ryukazi</p>
             <p class="hero-description">
-                <em>Gamer</em> with a passion for coding and creating <em>quality websites</em>.
-                I turn caffeine into clean code, and blank canvases into digital experiences
-                that actually hit different. No cap.
+                19-year-old developer from <em>Dhangadhi, Nepal</em> building fast, clean and
+                <em>animated websites</em>. Creator of <em>SocialDL</em>.
             </p>
             <div class="hero-about-tags">
-                <span class="about-tag"><span class="tag-symbol">#</span>gamer</span>
                 <span class="about-tag"><span class="tag-symbol">#</span>web-dev</span>
                 <span class="about-tag"><span class="tag-symbol">#</span>ui-ux</span>
-                <span class="about-tag"><span class="tag-symbol">#</span>otaku</span>
-                <span class="about-tag"><span class="tag-symbol">#</span>night-owl</span>
+                <span class="about-tag"><span class="tag-symbol">#</span>nepal</span>
+                <span class="about-tag"><span class="tag-symbol">#</span>creator</span>
             </div>
-            <div class="hero-typing" id="heroTyping" aria-label="Typing animation">
-                <span class="typing-prefix">const passion =</span>
-                <span class="typing-text" id="typingText"></span>
-                <span class="typing-cursor">|</span>
-            </div>
-            <a href="#gallery" class="cta-button" id="ctaButton">
-                View My Work
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
+            <div class="hero-typing"><span class="typing-prefix">const passion =</span> <span class="typing-text" id="typingText"></span><span class="typing-cursor">|</span></div>
+            <a href="#projects" class="cta-button">View My Work
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
         </div>
     </section>
 
-    <!-- ========== ABOUT ========== -->
+    <!-- ABOUT -->
     <section class="section about-section" id="about">
-        <div class="section-header reveal">
-            <span class="section-label">Who Am I</span>
-            <h2 class="section-title">About Me</h2>
-            <div class="section-divider"></div>
-        </div>
+        <div class="section-header reveal"><span class="section-label">Who Am I</span><h2 class="section-title">About Me</h2><div class="section-divider"></div></div>
         <div class="about-grid">
-            <!-- Terminal Card -->
             <div class="about-terminal reveal">
-                <div class="terminal-header">
-                    <div class="terminal-dots">
-                        <span class="dot dot-red"></span>
-                        <span class="dot dot-yellow"></span>
-                        <span class="dot dot-green"></span>
-                    </div>
-                    <span class="terminal-title">kangxrelz.config.js</span>
-                </div>
+                <div class="terminal-header"><div class="terminal-dots"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div><span class="terminal-title">lord-denish.config.js</span></div>
                 <div class="terminal-body">
-                    <div class="terminal-line">
-                        <span class="t-keyword">const</span>
-                        <span class="t-var"> Denish </span>
-                        <span class="t-op"> = {</span>
-                    </div>
-                    <div class="terminal-line t-indent">
-                        <span class="t-key">name:</span>
-                        <span class="t-string"> "Denish"</span><span class="t-op">,</span>
-                    </div>
-                    <div class="terminal-line t-indent">
-                        <span class="t-key">role:</span>
-                        <span class="t-string"> "Web Designer & Developer"</span><span class="t-op">,</span>
-                    </div>
-                    <div class="terminal-line t-indent">
-                        <span class="t-key">loves:</span>
-                        <span class="t-op"> [</span><span class="t-string">"gaming"</span><span class="t-op">,</span>
-                        <span class="t-string"> "coding"</span><span class="t-op">,</span>
-                        <span class="t-string"> "anime"</span><span class="t-op">],</span>
-                    </div>
-                    <div class="terminal-line t-indent">
-                        <span class="t-key">status:</span>
-                        <span class="t-string"> "open to work"</span><span class="t-op">,</span>
-                    </div>
-                    <div class="terminal-line t-indent">
-                        <span class="t-key">vibes:</span>
-                        <span class="t-string"> "immaculate"</span>
-                    </div>
-                    <div class="terminal-line">
-                        <span class="t-op">};</span>
-                    </div>
-                    <div class="terminal-line terminal-cursor-line">
-                        <span class="t-comment">// always building something cool</span>
-                        <span class="terminal-blink">▌</span>
-                    </div>
+                    <div class="terminal-line"><span class="t-keyword">const</span><span class="t-var"> lordDenish </span><span class="t-op">= {</span></div>
+                    <div class="terminal-line t-indent"><span class="t-key">name:</span><span class="t-string"> "Denish Chaudhary"</span><span class="t-op">,</span></div>
+                    <div class="terminal-line t-indent"><span class="t-key">age:</span><span class="t-string"> 19</span><span class="t-op">,</span></div>
+                    <div class="terminal-line t-indent"><span class="t-key">github:</span><span class="t-string"> "Ryukazi"</span><span class="t-op">,</span></div>
+                    <div class="terminal-line t-indent"><span class="t-key">location:</span><span class="t-string"> "Dhangadhi, Nepal"</span><span class="t-op">,</span></div>
+                    <div class="terminal-line t-indent"><span class="t-key">languages:</span><span class="t-op"> [</span><span class="t-string">"English"</span><span class="t-op">, </span><span class="t-string">"Nepali"</span><span class="t-op">, </span><span class="t-string">"Hindi"</span><span class="t-op">]</span></div>
+                    <div class="terminal-line"><span class="t-op">};</span></div>
+                    <div class="terminal-line terminal-cursor-line"><span class="t-comment">// always building something cool</span><span class="terminal-blink">▌</span></div>
                 </div>
             </div>
-
-            <!-- About Content -->
             <div class="about-content reveal">
-                <p class="about-bio">
-                    I live at the intersection of <span class="about-highlight">design and code</span> —
-                    where aesthetics meet functionality and every pixel has a reason to exist.
-                    Building things on the web isn't just a skill, it's how I <span
-                        class="about-highlight">think</span>.
-                </p>
-                <p class="about-bio">
-                    When I'm not deep in a codebase, you'll find me grinding ranked,
-                    or exploring the latest in <span class="about-highlight">web tech</span>. I don't just build
-                    websites —
-                    I craft experiences that people actually remember.
-                </p>
-
-                <!-- Stats -->
+                <p class="about-bio">I'm <span class="about-highlight">Denish Chaudhary</span>, also known online as <span class="about-highlight">lemon Denish</span>. I live in Dhangadhi, Kailali, Sudurpashchim Pradesh, Nepal, and I build websites that look good and work fast.</p>
+                <p class="about-bio">My biggest project is <span class="about-highlight">SocialDL</span>, a free, ad-free social video downloader. I speak English, Nepali and Hindi, and I'm always learning new web tech.</p>
                 <div class="about-stats">
-                    <div class="about-stat">
-                        <span class="stat-number">3+</span>
-                        <span class="stat-label">Projects Shipped</span>
-                    </div>
-                    <div class="about-stat">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Skills Mastered</span>
-                    </div>
-                    <div class="about-stat">
-                        <span class="stat-number">∞</span>
-                        <span class="stat-label">Lines of Code</span>
-                    </div>
-                </div>
-
-                <!-- Trait pills -->
-                <div class="about-traits">
-                    <div class="about-trait">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polygon points="5 3 19 12 5 21 5 3" />
-                        </svg>
-                        Gamer Mindset
-                    </div>
-                    <div class="about-trait">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="16 18 22 12 16 6" />
-                            <polyline points="8 6 2 12 8 18" />
-                        </svg>
-                        Clean Code
-                    </div>
-                    <div class="about-trait">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <circle cx="12" cy="12" r="10" />
-                            <line x1="12" y1="8" x2="12" y2="12" />
-                            <line x1="12" y1="16" x2="12.01" y2="16" />
-                        </svg>
-                        Detail Obsessed
-                    </div>
-                    <div class="about-trait">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        Quality First
-                    </div>
+                    <div class="about-stat"><span class="stat-number" data-count="3">0</span><span class="stat-label">Projects Shipped</span></div>
+                    <div class="about-stat"><span class="stat-number" data-count="3">0</span><span class="stat-label">Languages Spoken</span></div>
+                    <div class="about-stat"><span class="stat-number" id="repoCount" data-count="0">0</span><span class="stat-label">GitHub Repos</span></div>
                 </div>
             </div>
         </div>
@@ -341,202 +238,74 @@
         </div>
     </section>
 
-    <!-- ========== PROJECTS ========== -->
+    <!-- PROJECTS -->
     <section class="section" id="projects">
-        <div class="section-header reveal">
-            <span class="section-label">My Work</span>
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="section-divider"></div>
-        </div>
+        <div class="section-header reveal"><span class="section-label">My Work</span><h2 class="section-title">Featured Projects</h2><div class="section-divider"></div></div>
         <div class="projects-grid">
-            <!-- Ryuzaki -->
-            <div class="project-card reveal">
-                <div class="project-content">
-                    <h3 class="project-title">Ryuzaki</h3>
-                    <p class="project-desc">A full-stack website made by Kangxrelz it's generates image threw your imagination.</p>
-                    <div class="project-links">
-                        <a href="https://magic-imagee.vercel.app/" target="_blank" class="project-link">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                <polyline points="15 3 21 3 21 9"></polyline>
-                                <line x1="10" y1="14" x2="21" y2="3"></line>
-                            </svg>
-                            Live Demo
-                        </a>
-                        <a href="https://github.com/Ryuzaki/..." target="_blank" class="project-link">
-                            <ion-icon name="logo-github"></ion-icon>
-                            GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tic Tac Toe -->
-            <div class="project-card reveal">
-                <div class="project-content">
-                    <h3 class="project-title">TikTok clone</h3>
-                    <p class="project-desc">A classical TikTok scraper it's search TikTok from tikwm and give videos currently the website isn't fully prepared but in future it gonna be good stay with me.</p>
-                    <div class="project-links">
-                        <a href="https://anime-edit.vercel.app/" target="_blank" class="project-link">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0  2 0 0 1 2-2h6"></path>
-                                <polyline points="15 3 21 3 21 9"></polyline>
-                                <line x1="10" y1="14" x2="21" y2="3"></line>
-                            </svg>
-                            Live Demo
-                        </a>
-                        <a href="https://github.com/Ryukazi/..." target="_blank" class="project-link">
-                            <ion-icon name="logo-github"></ion-icon>
-                            GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Valentine's Day Question -->
-            <div class="project-card reveal">
-                <div class="project-content">
-                    <h3 class="project-title">SocialDL</h3>
-                    <p class="project-desc">An social media downloader free to use no ad not to pay .</p>
-                    <div class="project-links">
-                        <a href="https://social-dl-azure.vercel.app/index.html" target="_blank"
-                            class="project-link">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                <polyline points="15 3 21 3 21 9"></polyline>
-                                <line x1="10" y1="14" x2="21" y2="3"></line>
-                            </svg>
-                            Live Demo
-                        </a>
-                        <a href="https://github.com/Ryuzaki/..." target="_blank"
-                            class="project-link">
-                            <ion-icon name="logo-github"></ion-icon>
-                            GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <div class="project-card reveal"><div class="project-content">
+                <h3 class="project-title">SocialDL</h3>
+                <p class="project-desc">A free social media video downloader. No ads, no payment. Started with TikTok and now supports other platforms too.</p>
+                <div class="project-links">
+                    <a href="https://social-dl-azure.vercel.app/" target="_blank" rel="noopener" class="project-link"><ion-icon name="open-outline"></ion-icon> Live Demo</a>
+                    <a href="https://github.com/Ryukazi" target="_blank" rel="noopener" class="project-link"><ion-icon name="logo-github"></ion-icon> GitHub</a>
+                </div></div></div>
+            <div class="project-card reveal"><div class="project-content">
+                <h3 class="project-title">Magic Image</h3>
+                <p class="project-desc">A full-stack website that generates images from your imagination.</p>
+                <div class="project-links">
+                    <a href="https://magic-imagee.vercel.app/" target="_blank" rel="noopener" class="project-link"><ion-icon name="open-outline"></ion-icon> Live Demo</a>
+                    <a href="https://github.com/Ryukazi" target="_blank" rel="noopener" class="project-link"><ion-icon name="logo-github"></ion-icon> GitHub</a>
+                </div></div></div>
+            <div class="project-card reveal"><div class="project-content">
+                <h3 class="project-title">TikTok Scraper</h3>
+                <p class="project-desc">Searches TikTok through tikwm and returns videos. Still a work in progress.</p>
+                <div class="project-links">
+                    <a href="https://anime-edit.vercel.app/" target="_blank" rel="noopener" class="project-link"><ion-icon name="open-outline"></ion-icon> Live Demo</a>
+                    <a href="https://github.com/Ryukazi" target="_blank" rel="noopener" class="project-link"><ion-icon name="logo-github"></ion-icon> GitHub</a>
+                </div></div></div>
         </div>
     </section>
 
-    <!-- ========== GALLERY ========== -->
-    <section class="section" id="My girl 🤍">
-        <div class="section-header reveal">
-            <span class="section-label">Portfolio</span>
-            <h2 class="section-title">My sweet heart my Julie</h2>
-            <div class="section-divider"></div>
-        </div>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/KzQyD3yt/IMG-20250623-223450-664.jpg" alt="" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/VYCrDZ00/IMG-20250630-113451-117.jpg" alt="" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/k2r0Xcqw/IMG-20250703-160911-136.jpg" alt=""loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/dJpZsWkL/IMG-20250711-075308-659.jpg" alt="" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/yFQVb6Sr/IMG-20251115-121421-003.jpg" alt="" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/7wGGFfQ/IMG-20260304-082906-498.jpg" alt="" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/5XMZXjKV/IMG-20260304-091642-450.jpg" alt="" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/5hXh67kb/IMG-20260427-202510-407.jpg" alt="" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/4ZnX2MZ9/IMG-20260725-161742-850.jpg" alt="" loading="lazy">
-            </div>
-        </div>
+    <!-- GITHUB (live, fetched from the GitHub API in script.js) -->
+    <section class="section" id="github">
+        <div class="section-header reveal"><span class="section-label">Open Source</span><h2 class="section-title">My GitHub Repos</h2><div class="section-divider"></div></div>
+        <div class="gh-profile reveal" id="ghProfile"></div>
+        <div class="repo-grid" id="repoGrid"><p class="repo-loading">Loading repositories…</p></div>
+        <div class="gh-more reveal"><a class="cta-button" href="https://github.com/Ryukazi?tab=repositories" target="_blank" rel="noopener">See all on GitHub</a></div>
     </section>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">&times;</button>
-        <img src="" alt="Enlarged artwork">
-    </div>
-
-    <!-- ========== EDUCATION ========== -->
-    <section class="section" id="education">
-        <div class="section-header reveal">
-            <span class="section-label">Background</span>
-            <h2 class="section-title">Education</h2>
-            <div class="section-divider"></div>
-        </div>
+    <!-- JOURNEY -->
+    <section class="section" id="journey">
+        <div class="section-header reveal"><span class="section-label">Background</span><h2 class="section-title">My Journey</h2><div class="section-divider"></div></div>
         <div class="timeline">
-            <div class="timeline-item reveal">
-                <div class="timeline-item-header">
-                    <img src="https://i.ibb.co/1YWb74LJ/Screenshot-20260727-220932.jpg" alt="Crescent City School logo">
-                    <div class="timeline-item-info">
-                        <div class="school-name">Crescent City School</div>
-                        <div class="degree">SLC Examination</div>
-                    </div>
-                </div>
-                <div class="details">GPA: updating...</div>
-            </div>
-
-            <div class="timeline-item reveal">
-                <div class="timeline-item-header">
-                    <img src="https://i.ibb.co/j93vjMM1/Screenshot-20260727-220955.jpg" alt="Jyoti English Boarding School logo">
-                    <div class="timeline-item-info">
-                        <div class="school-name">Jyoti English Boarding School</div>
-                        <div class="degree">SEE Examination</div>
-                    </div>
-                </div>
-                <div class="details">GPA: 2.80</div>
-            </div>
-
-            <div class="timeline-item reveal">
-                <div class="timeline-item-header">
-                    <img src="https://i.ibb.co/j93vjMM1/Screenshot-20260727-220955.jpg" alt="Jyoti English Boarding School logo">
-                    <div class="timeline-item-info">
-                        <div class="school-name">Jyoti English Boarding School</div>
-                        <div class="degree">BLE Examination</div>
-                    </div>
-                </div>
-                <div class="details">GPA: 3.28</div>
-            </div>
+            <div class="timeline-item reveal"><div class="timeline-item-info"><div class="school-name">Born in 2007</div><div class="degree">Nepal</div></div><div class="details">The beginning.</div></div>
+            <div class="timeline-item reveal"><div class="timeline-item-header"><img src="https://i.ibb.co/j93vjMM1/Screenshot-20260727-220955.jpg" alt="Jyoti English Boarding School logo"><div class="timeline-item-info"><div class="school-name">Jyoti English Boarding School</div><div class="degree">Early schooling</div></div></div></div>
+            <div class="timeline-item reveal"><div class="timeline-item-info"><div class="school-name">CCS +2 College</div><div class="degree">Studies</div></div></div>
+            <div class="timeline-item reveal"><div class="timeline-item-info"><div class="school-name">Started coding &amp; launched SocialDL</div><div class="degree">Web development</div></div><div class="details">Building projects as Lord Denish.</div></div>
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
+    <!-- GALLERY (image links are set in config.js) -->
+    <section class="section" id="gallery">
+        <div class="section-header reveal"><span class="section-label">Moments</span><h2 class="section-title">Gallery</h2><div class="section-divider"></div></div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
+    <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button><img src="" alt="Enlarged photo"></div>
+
+    <!-- CONTACT -->
     <footer id="contact">
         <div class="footer-label">Get In Touch</div>
         <h2 class="footer-title">Let's Work Together</h2>
         <div class="social-links">
-            <a href="https://www.facebook.com/profile.php?id=61588242297439" target="_blank" aria-label="Facebook">
-                <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-            <a href="https://www.instagram.com/kangxrelz?igsh=dWppOGc5YTc2bXl5" target="_blank" aria-label="Instagram">
-                <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-            <a href="https://www.github.com/Ryukazi" target="_blank" aria-label="GitHub">
-                <ion-icon name="logo-github"></ion-icon>
-            </a>
-            <a href="https://discord.com/users/lelouch691" target="_blank" aria-label="Discord">
-                <ion-icon name="logo-discord"></ion-icon>
-            </a>
-            <a href="https://youtube.com/@ryuk4zi?si=y0sP2iB4FzA03y2S" target="_blank" aria-label="YouTube">
-                <ion-icon name="logo-youtube"></ion-icon>
-            </a>
+            <a href="https://github.com/Ryukazi" target="_blank" rel="noopener" aria-label="GitHub"><ion-icon name="logo-github"></ion-icon></a>
+            <a href="https://social-dl-azure.vercel.app/" target="_blank" rel="noopener" aria-label="SocialDL"><ion-icon name="globe-outline"></ion-icon></a>
         </div>
-        <div class="copyright">&copy; 2026 Kangxrelz. Free to use .</div>
+        <div class="copyright">&copy; 2026 Denish Chaudhary (Lord Denish). Dhangadhi, Nepal.</div>
     </footer>
 
-    <!-- Scripts -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="config.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>
