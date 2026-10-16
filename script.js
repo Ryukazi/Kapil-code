@@ -297,9 +297,9 @@
   const typingEl = document.getElementById('typingText');
   if (typingEl) {
     const phrases = [
-      '"dark themes 🖤"',
+      '"animated websites"',
       '"pixel perfection"',
-      '"shipping at 3am"',
+      '"building SocialDL"',
       '"minimal aesthetics"',
       '"creative problem solving"'
     ];
@@ -408,3 +408,61 @@
   updateActiveLink();
 })();
   
+
+/* ============================================================
+   Additions: enter screen + music, progress bar, counters, GitHub
+   ============================================================ */
+(() => {
+  'use strict';
+  const GH_USER = 'Ryukazi';
+  const enter = document.getElementById('enterScreen');
+  const audio = document.getElementById('bgMusic');
+  const musicBtn = document.getElementById('musicBtn');
+  document.body.style.overflow = 'hidden';
+
+  function setPlaying(on) { musicBtn.classList.toggle('playing', on); }
+  document.getElementById('enterBtn').addEventListener('click', () => {
+    enter.classList.add('hide');
+    document.body.style.overflow = '';
+    audio.volume = 0.5;
+    audio.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+  });
+  musicBtn.addEventListener('click', () => {
+    if (audio.paused) { audio.play(); setPlaying(true); } else { audio.pause(); setPlaying(false); }
+  });
+
+  const bar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (h > 0 ? scrollY / h * 100 : 0) + '%';
+  });
+
+  function countUp(el, to) {
+    let n = 0; const step = Math.max(1, Math.ceil(to / 40));
+    const t = setInterval(() => { n = Math.min(to, n + step); el.textContent = n; if (n >= to) clearInterval(t); }, 40);
+  }
+  const countObs = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { countUp(e.target, +e.target.dataset.count); countObs.unobserve(e.target); }
+  }), { threshold: .6 });
+  document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
+
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const grid = document.getElementById('repoGrid');
+  Promise.all([
+    fetch(`https://api.github.com/users/${GH_USER}`).then(r => r.ok ? r.json() : Promise.reject()),
+    fetch(`https://api.github.com/users/${GH_USER}/repos?per_page=100&sort=updated`).then(r => r.ok ? r.json() : Promise.reject())
+  ]).then(([u, repos]) => {
+    document.getElementById('ghProfile').innerHTML =
+      `<img src="${esc(u.avatar_url)}" alt="${esc(u.login)}"><div><b>@${esc(u.login)}</b>${u.public_repos} repos · ${u.followers} followers</div>`;
+    const rc = document.getElementById('repoCount'); rc.dataset.count = u.public_repos; countUp(rc, u.public_repos);
+    if (!repos.length) { grid.innerHTML = '<p class="repo-error">No public repositories yet.</p>'; return; }
+    grid.innerHTML = repos.filter(r => !r.fork).map(r => `
+      <a class="repo-card" href="${esc(r.html_url)}" target="_blank" rel="noopener">
+        <h3>${esc(r.name)}</h3><p>${esc(r.description || 'No description yet.')}</p>
+        <div class="repo-meta"><span>${esc(r.language || 'Code')}</span><span>★ ${r.stargazers_count}</span><span>⑂ ${r.forks_count}</span></div>
+      </a>`).join('');
+    grid.querySelectorAll('.repo-card').forEach((c, i) => setTimeout(() => c.classList.add('visible'), 100 * i));
+  }).catch(() => {
+    grid.innerHTML = `<p class="repo-error">Couldn't load repos right now. <a href="https://github.com/${GH_USER}" target="_blank" rel="noopener">Open my GitHub</a></p>`;
+  });
+})();
