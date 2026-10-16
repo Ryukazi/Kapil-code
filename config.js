@@ -1,12 +1,22 @@
 /* ============================================================
-   config.js — edit your image LINKS here (no image files needed)
-   Only two local files are used: assets/music.mp3 and assets/profile.mp4
+   config.js — Denish's Profile Website
+   Video and music hosted on GitHub
    ============================================================ */
-window.SITE = {
-  // Shown while the profile video loads (optional, leave "" to skip)
-  profilePoster: "https://i.ibb.co/ymkRDQHj/Screenshot-20260307-165522-1.jpg",
 
-  // Gallery photos: paste your image links (ibb.co, imgur, etc.)
+window.SITE = {
+  // Profile video poster
+  profilePoster:
+    "https://i.ibb.co/ymkRDQHj/Screenshot-20260307-165522-1.jpg",
+
+  // Profile video hosted on GitHub
+  profileVideo:
+    "https://raw.githubusercontent.com/Ryukazi/Kapil-code/main/assets/2026-10-07-075338241.mp4",
+
+  // Background music hosted on GitHub
+  backgroundMusic:
+    "https://raw.githubusercontent.com/Ryukazi/Kapil-code/main/assets/pixy-legacy-slowed-down-128-ytshorts.savetube.me.mp3",
+
+  // Gallery photos
   gallery: [
     "https://i.ibb.co/KzQyD3yt/IMG-20250623-223450-664.jpg",
     "https://i.ibb.co/VYCrDZ00/IMG-20250630-113451-117.jpg",
@@ -21,18 +31,57 @@ window.SITE = {
 };
 
 (() => {
-  const v = document.getElementById('heroVideo');
-  if (v && SITE.profilePoster) v.poster = SITE.profilePoster;
+  const video = document.getElementById("heroVideo");
 
-  const grid = document.getElementById('galleryGrid');
-  const section = document.getElementById('gallery');
+  if (video) {
+    if (SITE.profilePoster) {
+      video.poster = SITE.profilePoster;
+    }
+
+    video.src = SITE.profileVideo;
+    video.load();
+  }
+
+  // Set up background music if an audio element exists
+  const music = document.getElementById("backgroundMusic");
+
+  if (music) {
+    music.src = SITE.backgroundMusic;
+    music.loop = true;
+    music.load();
+  }
+
+  // Render gallery
+  const grid = document.getElementById("galleryGrid");
+  const section = document.getElementById("gallery");
+
   if (!grid) return;
-  if (!SITE.gallery.length) {            // no photos yet: hide section + nav link
-    section.style.display = 'none';
-    const a = document.querySelector('.nav-links a[href="#gallery"]');
-    if (a) a.parentElement.style.display = 'none';
+
+  if (!SITE.gallery.length) {
+    if (section) section.style.display = "none";
+
+    const link = document.querySelector(
+      '.nav-links a[href="#gallery"]'
+    );
+
+    if (link && link.parentElement) {
+      link.parentElement.style.display = "none";
+    }
+
     return;
   }
-  grid.innerHTML = SITE.gallery.map((src, i) =>
-    `<div class="gallery-item"><img src="${src}" alt="Gallery photo ${i + 1}" loading="lazy"></div>`).join('');
+
+  grid.innerHTML = SITE.gallery
+    .map(
+      (src, index) => `
+        <div class="gallery-item">
+          <img
+            src="${src}"
+            alt="Gallery photo ${index + 1}"
+            loading="lazy"
+          >
+        </div>
+      `
+    )
+    .join("");
 })();
